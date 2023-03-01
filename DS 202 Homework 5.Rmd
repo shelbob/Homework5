@@ -1,0 +1,47 @@
+---
+title: "Homework 5"
+author: "Shelby"
+date: "2023-03-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(classdata)
+library(ggplot2)
+choco <- read.csv("https://ds202-at-isu.github.io/labs/data/choco.csv")
+head(choco)
+```
+
+
+1. What is the overall number of chocolate bars rated?
+
+
+2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+
+3.For each of the questions below provide at least one graphic as a basis for your answer.
+
+  1.How are ratings distributed? Draw a histogram of ratings and describe it. Don’t forget to mention outliers, if there are any.
+  
+  2.Do ratings depend on the cocoa percentage of a chocolate bar?
+  
+  3.How do ratings compare across different company locations? Focus on the three locations with the most ratings:
+  
+Hint:dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada"))
+
+Discuss a question (one for each group member) you want to investigate.
+
+Shelby:
+
+Greg:
+
+Seana:
+
+Answer this question by graphs.
+
+Conclusions.
+
+Paragraph discussing workflow

@@ -14,10 +14,13 @@ library(classdata)
 library(ggplot2)
 choco <- read.csv("https://ds202-at-isu.github.io/labs/data/choco.csv")
 head(choco)
+str(choco)
 ```
 
 
 1. What is the overall number of chocolate bars rated?
+
+There are 1852 rows, so excluding the title row there are 1851 chocolate bars that were rated. 
 
 
 2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.

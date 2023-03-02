@@ -38,7 +38,7 @@ ggplot(choco, aes(x = Review.Date)) + geom_bar()
 
   1.How are ratings distributed? Draw a histogram of ratings and describe it. Don’t forget to mention outliers, if there are any.
   
-The majority of ratings fall between 2.5 and 4.0. There appear to be outliers at 1.5.
+The majority of ratings fall between 2.5 and 4.0. There appear to be outliers at 1.5 and 2. 
   
 ```{r}
 
@@ -49,7 +49,7 @@ ggplot(choco, aes(x = Rating.factor)) + geom_bar()
   
   2.Do ratings depend on the cocoa percentage of a chocolate bar?
   
-  Ratings do not appear to depend on the cocoa percentage of a chocolate bar.
+  The majority of chocolate bars with high ratings have a median cocoa percentage of about 70%. The chocolate bars with a higher cocoa percentage, such as those with a median of ~90 and 100% cocoa have ratings of 1.5 and 1.75 respectively. So it is much more common for chocolate bars with cocoa percentage around 70% to have higher ratings, but outliers do exist. 
   
 ```{r}
 
@@ -63,12 +63,14 @@ ggplot(choco, aes(x = Rating.factor, y = Cocoa.Pct)) +
   
   3.How do ratings compare across different company locations? Focus on the three locations with the most ratings:
   
+  Canada has very few ratings below 2.5, with the majority of their ratings appearing to be from 3.25 to 3.5. France had more ratings than Canada, but it also had more ratings with a score of 3.5 and 4. The USA has almost four times the ratings of France, and thus it had proportionally more ratings of each category. However, it does have many more ratings of 3.5, but about the same number of 4 ratings as France. 
+  
 ```{r}
 choco1 = choco
-dplyr::filter(choco1, Company.Location %in% c("U.S.A.", "France", "Canada"))
+choco2=dplyr::filter(choco1, Company.Location %in% c("U.S.A.", "France", "Canada"))
 
 
-ggplot(choco1, aes(x = Company.Location, fill=factor(Rating))) + geom_bar()
+ggplot(choco2, aes(x = Company.Location, fill=factor(Rating))) + geom_bar()
 
 
 ```
@@ -77,7 +79,7 @@ Hint:dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada"))
 
 Discuss a question (one for each group member) you want to investigate.
 
-Shelby:
+Shelby: Of the rating that were 4 or above, how where the company locations divided. Illustrate with a bar graph. 
 
 Greg:
 
@@ -88,3 +90,5 @@ Answer this question by graphs.
 Conclusions.
 
 Paragraph discussing workflow
+
+After we understood how to easily work back and forth on Github it was really easy to work with each other. We just sent texts to each other whenever we finished working or handed a problem off to someone else after working on it for a bit. 

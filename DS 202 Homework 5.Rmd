@@ -20,13 +20,17 @@ str(choco)
 
 1. What is the overall number of chocolate bars rated?
 
-There are 1852 rows, so excluding the title row there are 1851 chocolate bars that were rated. 
+There are 1852 observations, so there are 1852 chocolate bars that were rated. 
 
 
 2. How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
 
+The number of ratings increased from 2006 until 2015, dropped slightly in 2016, and fell much lower in 2017.
+
 ```{r}
-ggplot(choco, aes(x=Review.Date) + geom_boxplot() 
+
+choco$Review.Date <- as.factor(choco$Review.Date)
+ggplot(choco, aes(x = Review.Date)) + geom_bar()
 ```
 
 
@@ -34,10 +38,41 @@ ggplot(choco, aes(x=Review.Date) + geom_boxplot()
 
   1.How are ratings distributed? Draw a histogram of ratings and describe it. Don’t forget to mention outliers, if there are any.
   
+The majority of ratings fall between 2.5 and 4.0. There appear to be outliers at 1.5.
+  
+```{r}
+
+choco$Rating.factor <- as.factor(choco$Rating)
+ggplot(choco, aes(x = Rating.factor)) + geom_bar()
+
+```  
+  
   2.Do ratings depend on the cocoa percentage of a chocolate bar?
+  
+  Ratings do not appear to depend on the cocoa percentage of a chocolate bar.
+  
+```{r}
+
+ggplot(choco, aes(x = Rating, y = Cocoa.Pct)) +
+  geom_point()
+ggplot(choco, aes(x = Rating.factor, y = Cocoa.Pct)) +
+  geom_boxplot()
+
+```
+  
   
   3.How do ratings compare across different company locations? Focus on the three locations with the most ratings:
   
+```{r}
+choco1 = choco
+dplyr::filter(choco1, Company.Location %in% c("U.S.A.", "France", "Canada"))
+
+
+ggplot(choco1, aes(x = Company.Location, fill=factor(Rating))) + geom_bar()
+
+
+```
+
 Hint:dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada"))
 
 Discuss a question (one for each group member) you want to investigate.

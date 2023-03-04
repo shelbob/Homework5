@@ -83,7 +83,16 @@ Shelby: Of the rating that were 4 or above, how where the company locations divi
 
 Greg:
 
-Seana:
+Seana: How have ratings changed over the years?
+
+Overall, ratings have stayed relatively consistent from 2006 to 2017, with the median rating staying around 3.0. Rating may be slightly trending upward and have fewer low rating outliers in more recent years.
+
+```{r}
+
+ggplot(choco, aes(x = Review.Date, y = Rating)) +
+  geom_boxplot()
+
+```
 
 Answer this question by graphs.
 

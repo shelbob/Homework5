@@ -80,8 +80,14 @@ Hint:dplyr::filter(choco, Company.Location %in% c("U.S.A.", "France", "Canada"))
 Discuss a question (one for each group member) you want to investigate.
 
 Shelby: Of the rating that were 4 or above, how where the company locations divided. Illustrate with a bar graph. 
+```{r}
+choco_sh = dplyr::filter(choco, Rating >= 4)
 
-Greg:
+ggplot(choco_sh, aes(x=Company.Location)) + geom_bar() + coord_flip()
+```
+
+
+Greg: Where are the highest rated beans from?
 
 Seana: How have ratings changed over the years?
 
